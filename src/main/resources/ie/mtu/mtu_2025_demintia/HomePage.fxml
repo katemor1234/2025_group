@@ -1,127 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ie.mtu.mtu_2025_demintia.HomePageController">
 
-<AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ie.mtu.mtu_2025_demintia.HomePageController">
-   <children>
-      <BorderPane prefHeight="804.0" prefWidth="1280.0">
-         <top>
-            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-               <children>
-                  <Label prefHeight="49.0" prefWidth="217.0" text="Dementia Hub" textFill="#c67d18">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <font>
-                        <Font name="Verdana" size="24.0" />
-                     </font>
-                     <padding>
-                        <Insets bottom="10.0" left="30.0" top="30.0" />
-                     </padding>
-                  </Label>
-                  <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="859.0">
-                     <children>
-                        <Label text="Home">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                           <padding>
-                              <Insets left="10.0" right="10.0" />
-                           </padding>
-                        </Label>
-                        <Label layoutX="40.0" layoutY="40.0" text="About">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                           <padding>
-                              <Insets left="10.0" right="10.0" />
-                           </padding>
-                        </Label>
-                        <Line endX="239.3067169189453" endY="-599.0006103515625" startX="240.09967041015625" startY="-570.7077026367188" />
-                        <Label layoutX="122.0" layoutY="40.0" text="Sign In">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                           <padding>
-                              <Insets left="10.0" right="10.0" />
-                           </padding>
-                        </Label>
-                     </children>
-                     <padding>
-                        <Insets left="30.0" top="30.0" />
-                     </padding>
-                  </HBox>
-               </children>
-            </HBox>
-         </top>
-         <center>
-            <VBox prefHeight="487.0" prefWidth="719.0" BorderPane.alignment="CENTER">
-               <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" text="Welcome to Dementia Hub" textAlignment="CENTER">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                     <padding>
-                        <Insets bottom="5.0" left="10.0" top="10.0" />
-                     </padding>
-                  </Label>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="The Irish Health service's dementia portal. " textAlignment="CENTER">
-                     <VBox.margin>
-                        <Insets bottom="5.0" left="10.0" top="10.0" />
-                     </VBox.margin>
-                  </Text>
-                  <Text layoutX="10.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign in or register to get started">
-                     <VBox.margin>
-                        <Insets bottom="10.0" left="10.0" top="5.0" />
-                     </VBox.margin>
-                  </Text>
-                  <HBox prefHeight="39.0" prefWidth="699.0" spacing="20.0">
-                     <children>
-                        <Button fx:id="loginButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="26.0" prefWidth="105.0" style="-fx-background-color: #263F73;" text="Sign In" textFill="#fffafa" />
-                        <Button fx:id="loginButton1" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="20.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="26.0" prefWidth="105.0" style="-fx-background-color: #263F73;" text="Register" textFill="#fffafa" />
-                     </children>
-                     <padding>
-                        <Insets bottom="5.0" left="10.0" top="10.0" />
-                     </padding>
-                  </HBox>
-                  <HBox prefHeight="33.0" prefWidth="266.0" spacing="10.0">
-                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot your username?" underline="true" />
-                        <Line endX="239.3067169189453" endY="-599.0006103515625" startX="239.3065185546875" startY="-581.4949340820312" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot your password?" underline="true" />
-                     </children>
-                     <padding>
-                        <Insets left="10.0" top="5.0" />
-                     </padding>
-                  </HBox>
-               </children>
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
-            </VBox>
-         </center>
-         <left>
-            <AnchorPane prefHeight="704.0" prefWidth="302.0" BorderPane.alignment="CENTER" />
-         </left>
-         <right>
-            <AnchorPane prefHeight="704.0" prefWidth="259.0" BorderPane.alignment="CENTER" />
-         </right>
-         <bottom>
-            <AnchorPane prefHeight="84.0" prefWidth="1280.0" BorderPane.alignment="CENTER" />
-         </bottom>
-      </BorderPane>
-   </children>
+   <!-- center card -->
+   <VBox alignment="CENTER" prefHeight="220" prefWidth="320" spacing="16" style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 12, 0.2, 0, 4);" AnchorPane.bottomAnchor="60" AnchorPane.leftAnchor="80" AnchorPane.rightAnchor="80" AnchorPane.topAnchor="60">
+
+      <Label style="-fx-text-fill: #263F73;" text="Dementia Hub">
+         <font>
+            <Font name="System Bold" size="22" />
+         </font>
+      </Label>
+
+      <Label style="-fx-text-fill:#556;" text="Welcome — choose an option" />
+
+      <VBox alignment="CENTER" spacing="10">
+         <Button fx:id="loginButton" minHeight="36" minWidth="220" onAction="#loginButtonOnAction" style="-fx-background-color:#263F73; -fx-text-fill:white; -fx-background-radius:6;" text="Sign In" />
+         <Button fx:id="registerButton" minHeight="36" minWidth="220" onAction="#registerButtonOnAction" style="-fx-background-color:#4061b4; -fx-text-fill:white; -fx-background-radius:6;" text="Create Account" />
+      </VBox>
+
+      <Label style="-fx-text-fill:#99A;" text="© 2025 MTU" />
+   </VBox>
 </AnchorPane>
