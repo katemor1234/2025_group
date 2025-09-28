@@ -1,68 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ie.mtu.mtu_2025_demintia.LoginController">
-   <VBox alignment="CENTER" fillWidth="false" layoutX="400.0" layoutY="134.0" prefHeight="383.0" prefWidth="485.0">
-      <children>
-      
-          <!-- Title -->
-          <Label style="-fx-text-fill: #263F73;" text="Login to your account">
-              <font>
-                  <Font name="System Bold" size="24.0" />
-              </font>
-          </Label>
-      
-          <!-- Small helper row -->
-          <HBox alignment="CENTER" spacing="5.0">
-              <Label alignment="CENTER" text="Don't have an account yet?" textAlignment="CENTER" />
-              <!-- keep Label; change to Hyperlink if you later wire navigation -->
-              <Label text="Register here" textFill="#2189b9" underline="true" />
-            <VBox.margin>
-               <Insets top="10.0" />
-            </VBox.margin>
-          </HBox>
-      
-          <!-- Message (errors/success) -->
-          <Label fx:id="loginMessageLabel" prefHeight="17.0" prefWidth="254.0" textAlignment="CENTER" textFill="#ee0808">
-            <VBox.margin>
-               <Insets top="10.0" />
-            </VBox.margin></Label>
-      
-          <!-- Username -->
-          <VBox alignment="CENTER" fillWidth="false" prefHeight="54.0" prefWidth="200.0" spacing="8">
-              <Label prefHeight="20.0" prefWidth="200.0" style="-fx-text-fill:#556;" text="Username:" textAlignment="CENTER" />
-              <TextField fx:id="usernameTextField" prefHeight="24.0" prefWidth="200.0" promptText="Username" />
-            <VBox.margin>
-               <Insets top="10.0" />
-            </VBox.margin>
-          </VBox>
-      
-          <!-- Password -->
-          <VBox alignment="CENTER" fillWidth="false" prefWidth="200.0" spacing="8">
-              <Label prefWidth="200.0" style="-fx-text-fill:#556;" text="Password:" />
-              <PasswordField fx:id="passwordPasswordField" prefWidth="200.0" promptText="Password" />
-            <VBox.margin>
-               <Insets top="10.0" />
-            </VBox.margin>
-          </VBox>
-      
-          <!-- Buttons (keep exact placement/sizing) -->
-          <Button fx:id="loginButton" minHeight="36.0" minWidth="220.0" onAction="#loginButtonOnAction" style="-fx-background-color:#263F73; -fx-text-fill:white; -fx-background-radius:6;" text="Login">
-            <VBox.margin>
-               <Insets top="10.0" />
-            </VBox.margin>
-         </Button>
-      
-          <Button fx:id="cancelButton" minHeight="36.0" minWidth="220.0" onAction="#cancelButtonOnAction" style="-fx-background-color:#263F73; -fx-text-fill:white; -fx-background-radius:6;" text="Cancel" textAlignment="CENTER">
-            <VBox.margin>
-               <Insets top="10.0" />
-            </VBox.margin>
-         </Button>
-      </children>
-   </VBox>
+<StackPane prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: linear-gradient(to bottom, #f8fbff, #eef3ff);" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ie.mtu.mtu_2025_demintia.LoginController">
 
-</AnchorPane>
+    <!-- Centered card -->
+    <VBox alignment="CENTER" spacing="18" style="-fx-background-color: white; -fx-background-radius: 12;                  -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 16, 0.25, 0, 6);                  -fx-padding: 28;">
+
+        <Label style="-fx-text-fill:#263F73;" text="Login to your account">
+            <font><Font size="36.0" /></font>
+        </Label>
+
+        <HBox alignment="CENTER" spacing="6">
+            <Label text="Don't have an account yet?" />
+            <!-- keep as a label (or swap to Hyperlink later with a handler) -->
+            <Label onMouseClicked="#onRegisterHereClick" text="Register here" textFill="#2189b9" underline="true" />
+        </HBox>
+
+        <!-- validation / status -->
+        <Label fx:id="loginMessageLabel" style="-fx-text-fill:#b00020;" textAlignment="CENTER" />
+
+        <!-- form -->
+        <VBox alignment="CENTER_LEFT" maxWidth="320" spacing="12">
+            <VBox spacing="6">
+                <Label style="-fx-text-fill:#556;" text="Username" />
+                <TextField fx:id="usernameTextField" prefWidth="320" promptText="Enter username" />
+            </VBox>
+
+            <VBox spacing="6">
+                <Label style="-fx-text-fill:#556;" text="Password" />
+                <PasswordField fx:id="passwordPasswordField" prefWidth="320" promptText="Enter password" />
+            </VBox>
+        </VBox>
+
+        <!-- actions -->
+        <VBox alignment="CENTER" spacing="10">
+            <ImageView fitHeight="51.0" fitWidth="238.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@images/web_neutral_sq_ctn@4x.png" />
+            </image>
+            </ImageView>
+            <Button fx:id="loginButton" minHeight="51.0" minWidth="238.0" onAction="#loginButtonOnAction" style="-fx-background-color:#263F73; -fx-text-fill:white; -fx-background-radius:8;" text="Login" />
+            <Button fx:id="cancelButton" minHeight="51.0" minWidth="238.0" onAction="#cancelButtonOnAction" style="-fx-background-color:#6B7BA8; -fx-text-fill:white; -fx-background-radius:8;" text="Cancel" />
+        </VBox>
+    </VBox>
+</StackPane>

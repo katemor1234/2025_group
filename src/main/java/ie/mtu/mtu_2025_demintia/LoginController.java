@@ -2,14 +2,10 @@ package ie.mtu.mtu_2025_demintia;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -25,25 +21,30 @@ public class LoginController {
     public void loginButtonOnAction(ActionEvent e) {
         String user = usernameTextField.getText().trim();
         String pass = passwordPasswordField.getText();
-        if (!user.isEmpty() && !pass.isEmpty()) {
-            loginMessageLabel.setText("Checking...");
-            validateLogin(user, pass);
-        } else {
+        if (user.isEmpty() || pass.isEmpty()) {
             loginMessageLabel.setText("Please enter username and password!");
+            return;
         }
+        loginMessageLabel.setText("Checking...");
+        validateLogin(user, pass);
     }
 
     @FXML
     public void cancelButtonOnAction(ActionEvent e){
-        Stage stage = (Stage) cancelButton.getScene().getWindow();
-        stage.close();
+        // navigate back to Home instead of closing the app
+        ViewRouter.go("HomePage.fxml");
+    }
+
+    /** Navigate to CreateAccount.fxml when Register Here is clicked */
+    @FXML
+    public void onRegisterHereClick() {
+        ViewRouter.go("CreateAccount.fxml");
     }
 
     private void validateLogin(String user, String pass) {
         String sql = "SELECT 1 FROM users WHERE username = ? AND password_hash = ? LIMIT 1";
-
-        try (Connection connectDB = DatabaseConnection.getConnection();
-             PreparedStatement ps = connectDB.prepareStatement(sql)) {
+        try (Connection c = DatabaseConnection.getConnection();
+             PreparedStatement ps = c.prepareStatement(sql)) {
 
             ps.setString(1, user);
             ps.setString(2, DatabaseConnection.hashPassword(pass));
@@ -51,13 +52,10 @@ public class LoginController {
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
                     loginMessageLabel.setText("Welcome!");
-                    // Keep SAME Scene (and size) — just swap the root:
-                    Parent newRoot = FXMLLoader.load(Main.class.getResource("HomePage.fxml"));
-                    Scene scene = loginMessageLabel.getScene();
-                    scene.setRoot(newRoot);
+                    ViewRouter.go("HomePage.fxml");
                 } else {
                     loginMessageLabel.setText("Invalid Login. Please try again");
-                    passwordPasswordField.clear(); // optional UX
+                    passwordPasswordField.clear();
                 }
             }
         } catch (Exception ex) {
